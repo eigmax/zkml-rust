@@ -1,5 +1,13 @@
 # zkml-rust
 
+Note: make sure your server has at least 40GiB RAM.
+## Requirement 
+
+* Nodejs, 18.x
+* Rust
+
+## Run zk-LR
+
 ```
 #let workdir=/zkp
 cd /zkp 
