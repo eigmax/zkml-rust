@@ -17,12 +17,12 @@ set -ex
 # Test 
 
 workdir="$(cd "$( dirname "$0")/.." && pwd)"
-
+circomdir=$workdir/eigen-zkvm/starkjs
 cd $workdir/powdr
 
 cargo run --release rust $workdir/zkml-rust/lr/src/main.rs -f -i "3,1,1,2,2,3,1" -o ./test_sum --prove-with estark
 
-cd ../eigen-zkvm/test
+cd $workdir/eigen-zkvm/test
 mkdir -p test_regression && rm -rf test_regression/*
 ../target/release/eigen-zkit compile -p goldilocks -i /tmp/abc.circom -l "../starkjs/node_modules/pil-stark/circuits.gl" -l "../starkjs/node_modules/circomlib/circuits" --O2=full -o test_regression 
 
@@ -32,6 +32,6 @@ mkdir -p test_regression && rm -rf test_regression/*
 ../target/release/eigen-zkit stark_prove -s ../../zkml-rust/lr/c12.starkStruct.bn128.json \
     -p test_regression/c12.pil.json \
     --o test_regression/c12.const \
-    --m test_regression/c12.cm -c circuits/c12a.verifier.circom --i circuits/c12a.verifier/final_input.zkin.json --norm_stage
+    --m test_regression/c12.cm -c $circomdir/circuits/c12a.verifier.circom --i circuits/c12a.verifier/final_input.zkin.json --norm_stage
 
-bash -x ./snark_verifier.sh groth16 true bn128 c12a.verifier $PWD/circuits
+bash -x ./snark_verifier.sh groth16 true bn128 c12a.verifier $workdir/eigen-zkvm/test/circuits
