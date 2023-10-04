@@ -21,3 +21,12 @@ git clone https://github.com/0xEigenLabs/eigen-zkvm
 
 cd zkml-rust && bash -x recursive.sh
 ```
+
+## Performance
+
+The proof time on a 128core server:
+```
+Stark proof: (168s)
+Recursive proof: (38s)
+Snark proof: (129s)
+```
