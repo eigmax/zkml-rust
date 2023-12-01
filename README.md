@@ -15,7 +15,7 @@ cd /zkp
 git clone https://github.com/eigmax/zkml-rust.git
 git clone https://github.com/powdr-labs/powdr
 
-(cd powdr && git checkout a001f81940c264bd615ecb1279929303d1b72857 && git apply ../zkml-rust/powdr.diff)
+(cd powdr && git checkout 7c021e983ce860a7a253b707114e27976f18f1a5 && git apply ../zkml-rust/powdr.diff)
 
 git clone https://github.com/0xEigenLabs/eigen-zkvm
 
