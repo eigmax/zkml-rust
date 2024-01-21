@@ -13,10 +13,7 @@ Note: make sure your server has at least 40GiB RAM.
 cd /zkp 
 
 git clone https://github.com/eigmax/zkml-rust.git
-git clone https://github.com/powdr-labs/powdr
-
-(cd powdr && git checkout 7c021e983ce860a7a253b707114e27976f18f1a5 && git apply ../zkml-rust/powdr.diff)
-
+git clone https://github.com/eigmax/powdr
 git clone https://github.com/0xEigenLabs/eigen-zkvm
 
 cd zkml-rust && bash -x recursive.sh
